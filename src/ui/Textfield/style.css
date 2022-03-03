@@ -1,0 +1,13 @@
+.textfield-container {
+  display: flex;
+  flex-direction: column;
+  height: 85px;
+  justify-content: space-between;
+  width: 100%;
+}
+.textfield {
+  height: 50px;
+}
+.textarea {
+  height: 100px;
+}

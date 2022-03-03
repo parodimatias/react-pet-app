@@ -1,24 +1,24 @@
 import React from "react";
-import "./style.css";
+import css from "./style.css";
 
 export function TitleText(props) {
-  return <span className="title">{props.children}</span>;
+  return <span className={css.title}>{props.children}</span>;
 }
 export function SubtitleText(props) {
-  return <span className="subtitle">{props.children}</span>;
+  return <span className={css.subtitle}>{props.children}</span>;
 }
 export function SubtitleBoldText(props) {
-  return <span className="subtitle-bold">{props.children}</span>;
+  return <span className={css["subtitle-bold"]}>{props.children}</span>;
 }
 export function BodyText(props) {
-  return <span className="body">{props.children}</span>;
+  return <span className={css.body}>{props.children}</span>;
 }
 export function BodyBoldText(props) {
-  return <span className="body-bold"></span>;
+  return <span className={css["body-bold"]}>{props.children}</span>;
 }
 export function CaptionText(props) {
-  return <span className="subtitle"></span>;
+  return <span className={css.caption}>{props.children}</span>;
 }
 export function LinkText(props) {
-  return <span className="link"></span>;
+  return <span className={css.link}>{props.children}</span>;
 }

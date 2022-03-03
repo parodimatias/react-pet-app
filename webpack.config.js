@@ -2,7 +2,6 @@ const path = require("path");
 const dev = process.env.NODE_ENV == "development";
 var liveServer = require("live-server");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
-
 if (dev) {
   liveServer.start({
     root: "./",
@@ -19,12 +18,20 @@ module.exports = {
         use: "ts-loader",
         exclude: /node_modules/,
       },
-
+      {
+        test: /\.(png|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+      },
       {
         test: /\.css$/i,
         use: [
           "style-loader",
-          { loader: "css-loader", options: { modules: true } },
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+            },
+          },
         ],
       },
     ],

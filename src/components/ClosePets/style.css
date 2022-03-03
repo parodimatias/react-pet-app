@@ -1,0 +1,13 @@
+.container {
+  margin: auto;
+  align-items: center;
+  text-align: center;
+  padding: 50px;
+}
+.pets-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: auto;
+  align-items: center;
+}

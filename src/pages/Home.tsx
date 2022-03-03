@@ -1,4 +1,11 @@
-import React, { useState } from "react";
+import { ClosePets } from "components/ClosePets";
+import React from "react";
+import { TitleText } from "ui/Texts";
 export function Home() {
-  return <div>Soy el Home</div>;
+  return (
+    <>
+      <TitleText>Mascotas perdidas cerca tuyo</TitleText>
+      <ClosePets></ClosePets>
+    </>
+  );
 }

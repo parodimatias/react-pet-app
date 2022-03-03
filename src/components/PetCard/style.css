@@ -1,0 +1,46 @@
+.pets-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.pet__item {
+  width: 350px;
+  border: solid black 1px;
+  display: flex;
+  flex-direction: column;
+}
+.pet__img-container {
+  border: solid 1px black;
+  height: 147px;
+  /* overflow: hidden; */
+}
+.pet__data-container {
+  border: solid 1px black;
+  display: flex;
+  padding: 10px;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.pet__description-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.pet__description-name {
+  margin: 0;
+}
+.pet__description-link {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: bottom;
+  position: relative;
+}
+.pet__link {
+  background-color: white;
+  border: none;
+}
+.pet__link:hover {
+  cursor: pointer;
+}

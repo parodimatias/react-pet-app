@@ -1,0 +1,10 @@
+.root {
+  margin: auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+form p {
+  color: red;
+}
