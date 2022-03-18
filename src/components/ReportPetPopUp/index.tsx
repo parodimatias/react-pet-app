@@ -17,8 +17,6 @@ type ReportPetPopUp = {
 export function ReportPetPopUp(props: ReportPetPopUp) {
   const fetch = useFetch(null);
   const submitCallback = (formState) => {
-    console.log("callback del popup");
-    console.log(formState);
     const request = {
       url: API_BASE_URL + "/sendnotification",
       config: {

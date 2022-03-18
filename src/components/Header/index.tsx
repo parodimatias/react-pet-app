@@ -34,7 +34,6 @@ function DropDownMenu() {
   const [loggedData, setLoggedData] = useRecoilState(loginInfoState);
   const [isOpen, setIsOpen] = useRecoilState(isMenuOpenState);
   const clearLoggedData = () => {
-    console.log("borrando local storage");
     setIsOpen(!isOpen);
     setLoggedData(loginObject);
   };
