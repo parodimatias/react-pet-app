@@ -1,15 +1,15 @@
-import { Button } from "ui/Button";
-import React, { useEffect } from "react";
-import { TextField } from "ui/Textfield";
 import { loginInfoState } from "hooks";
-import { useForm } from "hooks/useForm";
-
-import css from "./style.css";
-import { validateMail } from "lib/validateInfo";
 import useFetch from "hooks/useFetch";
+import { useForm } from "hooks/useForm";
 import { API_BASE_URL } from "index";
-import { useRecoilState } from "recoil";
+import { validateMail } from "lib/validateInfo";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import { Button } from "ui/Button";
+import { TextField } from "ui/Textfield";
+import css from "./style.css";
+
 export function MailForm() {
   const navigate = useNavigate();
   const [loginInfo, setLoginInfo] = useRecoilState(loginInfoState); //Este State comanda el montaje en LoginForm
@@ -23,6 +23,7 @@ export function MailForm() {
       config: {
         method: "POST",
         headers: {
+          "Access-Control-Allow-Origin": "*",
           "Content-Type": "application/json",
         },
         body: JSON.stringify(state),
