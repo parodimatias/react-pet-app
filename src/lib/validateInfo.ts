@@ -7,6 +7,19 @@ export function validateMail(values) {
   }
   return errors;
 }
+export function validateReportInfo(values) {
+  let errors: any = {};
+  if (!values.nombre) {
+    errors.nombre = "Nombre de mascota requerido";
+  }
+  if (!values.picture) {
+    errors.picture = "Imagen requerida";
+  }
+  if (!values.lat) {
+    errors.lat = "Location requerida";
+  }
+  return errors;
+}
 export function validateInfo(values) {
   let errors: any = {};
   if (!values.fullName) {

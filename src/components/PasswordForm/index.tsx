@@ -28,7 +28,6 @@ export function PasswordForm() {
       setIsSubmitted(false);
       const callToApi = async () => {
         const response2 = await APICalls.getAuthToken(loginInfo);
-        console.log(response2);
         if (response2) {
           const { token, logged, userId, fullName } = response2;
           setLoginInfo({ ...loginInfo, token, logged, userId, fullName });

@@ -1,13 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { CaptionText, LinkText, TitleText } from "ui/Texts";
+import editButtonImg from "./editButton.png";
 import css from "./style.css";
-
 type PetCard = {
   img: string;
   name: string;
   location: string;
   petId: string;
   callBack: (any) => any;
+  editOrReport: "edit" | "report";
+  found: boolean;
 };
 export function PetCard(props: PetCard) {
   const openPopUp = () => {
@@ -27,11 +30,21 @@ export function PetCard(props: PetCard) {
             <CaptionText>{props.location}</CaptionText>
           </div>
         </div>
-        <div className={css["pet__description-link"]}>
-          <button onClick={openPopUp} className={css["pet__link"]}>
-            <LinkText>REPORTAR INFORMACION</LinkText>
-          </button>
-        </div>
+        {props.editOrReport == "report" && (
+          <div className={css["pet__description-link"]}>
+            <button onClick={openPopUp} className={css["pet__link"]}>
+              <LinkText>REPORTAR INFORMACION</LinkText>
+            </button>
+          </div>
+        )}
+        {props.editOrReport == "edit" && props.found == false && (
+          <Link to={"/editpet/" + props.petId}>
+            <img src={editButtonImg}></img>
+          </Link>
+        )}
+        {props.editOrReport == "edit" && props.found == true && (
+          <CaptionText>Encontrado</CaptionText>
+        )}
       </div>
     </div>
   );

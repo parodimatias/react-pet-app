@@ -1,0 +1,7 @@
+.dropzone {
+  padding: 10px;
+  border: dashed black 1px;
+}
+.dropzone-text {
+  color: black;
+}

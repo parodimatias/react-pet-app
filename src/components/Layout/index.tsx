@@ -6,7 +6,6 @@ export function Layout() {
     <div>
       <Header></Header>
       <Outlet />
-      <footer>Soy el footer</footer>
     </div>
   );
 }

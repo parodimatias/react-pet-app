@@ -1,23 +1,34 @@
-import React, { useState, useEffect } from "react";
-export function useForm(callback, validate) {
+import { useEffect, useState } from "react";
+export function useForm(submitCallback, validate?) {
   const [state, setState] = useState({} as any);
   const [errors, setErrors] = useState({} as any);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const handleChange = (e: any) => {
-    console.log("soy handle change", state);
+    e.preventDefault();
     setState((state) => ({ ...state, [e.target.name]: e.target.value }));
   };
+  useEffect(() => {
+    console.log("Soy el state cambiando", state);
+  }, [state]);
   const handleSubmit = (e: any) => {
+    console.log("soy handle submit");
     e.preventDefault();
-    setErrors(validate(state));
-    setIsSubmitting(true);
+    if (validate) {
+      setErrors(validate(state));
+      setIsSubmitting(true);
+    } else {
+      setIsSubmitted(true);
+    }
+  };
+  const saveExtraData = (data: {}) => {
+    setState((state) => ({ ...state, ...data }));
   };
   //useEffect detecta que no haya errores y chequea que se haya presionado submit para llamar a un callback
   useEffect(() => {
     console.log(errors);
     if (Object.keys(errors).length === 0 && isSubmitting) {
-      callback(state);
+      submitCallback(state);
       setIsSubmitted(true);
     }
   }, [errors]);
@@ -28,5 +39,6 @@ export function useForm(callback, validate) {
     errors,
     isSubmitted,
     setIsSubmitted,
+    saveExtraData,
   ];
 }

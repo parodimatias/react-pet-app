@@ -1,5 +1,5 @@
 import { atom } from "recoil";
-export const emptyObject = {
+export const loginObject = {
   emailSent: false,
   emailExist: false,
   email: "",
@@ -11,12 +11,7 @@ export const emptyObject = {
   lng: "",
   lat: "",
 };
-
-export const popUpState = atom({
-  key: "popUpOpen",
-  default: false,
-});
-
+const petsCollection = [];
 const localStorageEffect =
   (key) =>
   ({ setSelf, onSet }) => {
@@ -31,8 +26,17 @@ const localStorageEffect =
         : localStorage.setItem(key, JSON.stringify(newValue));
     });
   };
+export const popUpState = atom({
+  key: "popUpOpen",
+  default: false,
+});
 export const loginInfoState = atom({
   key: "loginInfo",
-  default: emptyObject,
+  default: loginObject,
   effects: [localStorageEffect("current_user")],
+});
+export const myReportedPetsState = atom({
+  key: "myReportedPets",
+  default: petsCollection,
+  effects: [localStorageEffect("current_pets")],
 });

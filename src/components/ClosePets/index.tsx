@@ -69,10 +69,12 @@ export const ClosePets = () => {
           {closePets.map((pet) => {
             return (
               <PetCard
+                editOrReport="report"
                 name={pet.nombre}
                 petId={pet.id}
                 callBack={handleCallBack}
                 location={pet.location}
+                found={pet.found}
                 img={pet.picture}
               ></PetCard>
             );

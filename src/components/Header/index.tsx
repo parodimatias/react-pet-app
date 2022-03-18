@@ -1,4 +1,4 @@
-import { emptyObject, loginInfoState } from "hooks";
+import { loginInfoState, loginObject } from "hooks";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
@@ -36,7 +36,7 @@ function DropDownMenu() {
   const clearLoggedData = () => {
     console.log("borrando local storage");
     setIsOpen(!isOpen);
-    setLoggedData(emptyObject);
+    setLoggedData(loginObject);
   };
   return (
     <div className={css.dropdown}>

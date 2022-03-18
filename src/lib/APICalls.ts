@@ -39,7 +39,6 @@ const APICalls = {
     }
   },
   async getAuthToken(params) {
-    console.log("params son ", params);
     const cs = params;
     const data = await fetch(API_BASE_URL + "/auth/token", {
       method: "POST",
@@ -51,7 +50,6 @@ const APICalls = {
         password: cs.password,
       }),
     });
-    console.log("data es ", data);
     const response = await data.json();
     if (response == "wrong email or password") {
       alert("wrong password");
@@ -90,7 +88,6 @@ const APICalls = {
       }
     );
     const response = await data.json();
-    console.log(response);
     return response;
   },
   async getMyReportedPets(params) {
@@ -98,6 +95,86 @@ const APICalls = {
     const response = await fetch(API_BASE_URL + "/pets/" + cs.userId);
     const data = await response.json();
     return data;
+  },
+  async reportLostPet(state) {
+    const cs = state;
+    const data = await fetch(API_BASE_URL + "/report-lost-pet", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userId: cs.userId,
+        nombre: cs.nombre,
+        picture: cs.picture,
+        lat: cs.lat,
+        lng: cs.lng,
+        location: cs.location,
+      }),
+    });
+    const response = await data.json();
+    if (response == "Pet already created") {
+      return false;
+    } else if (response == "Pet created") {
+      return true;
+    }
+  },
+  async updateLostPet(state) {
+    const cs = state;
+    const data = await fetch(API_BASE_URL + "/pet", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: cs.id,
+        nombre: cs.nombre,
+        picture: cs.picture,
+        lat: cs.lat,
+        lng: cs.lng,
+        location: cs.location,
+      }),
+    });
+    const response = await data.json();
+    return response;
+  },
+  async sendNotification(state) {
+    const cs = state;
+    const data = await fetch(API_BASE_URL + "/sendnotification", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(cs.reporter),
+    });
+    const response = await data.json();
+    return response;
+  },
+  async unlinkPet(state) {
+    const cs = state;
+    const data = await fetch(API_BASE_URL + "/pet/" + cs.id, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const response = await data.json();
+    return response;
+  },
+  async foundPet(state) {
+    const cs = state;
+    const data = await fetch(API_BASE_URL + "/pet/", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: cs.id,
+        found: true,
+      }),
+    });
+    const response = await data.json();
+    return response;
   },
 };
 

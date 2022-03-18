@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { AppRoutes } from "./router";
-import { RecoilRoot } from "recoil";
 import { BrowserRouter } from "react-router-dom";
-export const API_BASE_URL = "http://localhost:3000";
+import { RecoilRoot } from "recoil";
+import { AppRoutes } from "./router";
+// export const API_BASE_URL = "http://localhost:3000";
+export const API_BASE_URL = "https://matias-pet-finder-app.herokuapp.com/";
 
 function App() {
   return (
