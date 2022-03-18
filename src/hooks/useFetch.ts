@@ -7,7 +7,6 @@ export default function useFetch(config?) {
   const refetch = async (request) => {
     setLoading(true);
     try {
-      console.log("ejecutando fetch", request.url, request.config);
       const response = await fetch(request.url, request.config);
       const json = await response.json();
       setData(json);

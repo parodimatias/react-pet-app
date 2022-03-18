@@ -8,11 +8,8 @@ export function useForm(submitCallback, validate?) {
     e.preventDefault();
     setState((state) => ({ ...state, [e.target.name]: e.target.value }));
   };
-  useEffect(() => {
-    console.log("Soy el state cambiando", state);
-  }, [state]);
+  useEffect(() => {}, [state]);
   const handleSubmit = (e: any) => {
-    console.log("soy handle submit");
     e.preventDefault();
     if (validate) {
       setErrors(validate(state));

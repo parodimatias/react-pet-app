@@ -30,7 +30,6 @@ export function MyDataForm() {
     if (isSubmitted) {
       setIsSubmitted(false);
       if (!loginInfo.logged) {
-        console.log("registrando");
         const callToApi = async () => {
           const response = await APICalls.auth(loginInfo);
           if (response) {
@@ -44,7 +43,6 @@ export function MyDataForm() {
         };
         callToApi();
       } else {
-        console.log("actualizando perfil");
         const callToApi = async () => {
           const response = await APICalls.profileUpdate(loginInfo);
           if (response) {
