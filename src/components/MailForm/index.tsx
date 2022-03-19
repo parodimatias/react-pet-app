@@ -21,8 +21,8 @@ export function MailForm() {
     const request = {
       url: API_BASE_URL + "/email",
       config: {
+        mode: "cors",
         method: "POST",
-        mode: "no-cors",
         headers: {
           "Content-Type": "application/json",
         },
