@@ -67,17 +67,21 @@ export const ClosePets = () => {
       ) : closePets ? (
         <div className={css["pets-container"]}>
           {closePets.map((pet) => {
-            return (
-              <PetCard
-                editOrReport="report"
-                name={pet.nombre}
-                petId={pet.id}
-                callBack={handleCallBack}
-                location={pet.location}
-                found={pet.found}
-                img={pet.picture}
-              ></PetCard>
-            );
+            if (pet.found == false) {
+              return (
+                <PetCard
+                  editOrReport="report"
+                  name={pet.nombre}
+                  petId={pet.id}
+                  callBack={handleCallBack}
+                  location={pet.location}
+                  found={pet.found}
+                  img={pet.picture}
+                ></PetCard>
+              );
+            } else {
+              return false;
+            }
           })}
         </div>
       ) : (

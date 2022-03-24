@@ -38,5 +38,4 @@ export const loginInfoState = atom({
 export const myReportedPetsState = atom({
   key: "myReportedPets",
   default: petsCollection,
-  effects: [localStorageEffect("current_pets")],
 });
